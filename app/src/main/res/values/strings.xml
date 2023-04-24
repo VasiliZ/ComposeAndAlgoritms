@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CustomLayout</string>
+    <string name="sort_button_title">Start bubble sort</string>
+    <string name="refresh_bubble_sort_button_title">Refresh bubble sort</string>
+    <string name="quick_sort_button_title">Start quick sort</string>
+    <string name="refresh_quick_sort_button_title">Refresh quick sort</string>
+    <string name="quick_sort_title">Quick sort</string>
+    <string name="bubble_sort_title">Bubble sort</string>
+</resources>
