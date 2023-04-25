@@ -8,6 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.customlayout.data.QuickSortItem
 import com.example.customlayout.data.RadioGroupItemType
 import com.example.customlayout.lazylayout.data.LazyListItem
+import com.example.customlayout.three.NNode
+import com.example.customlayout.three.Node
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random
@@ -26,6 +28,15 @@ class ScreenViewModel : ViewModel() {
     val radioGroupList = RadioGroupItemType.values()
 
     var selectedRadioButtonItem = mutableStateOf(RadioGroupItemType.BUBBLE_SORT)
+    var three = mutableStateOf(buildSimpleBinaryThree())
+        private set
+    val nNodeThree = rootOfNAryTree()
+
+    init {
+        nNodeThree.traverseDepthFirst(nNodeThree) {
+            // Log.d("TAG1", ": $it")
+        }
+    }
 
     private fun initBubbleSortList(): SnapshotStateList<LazyListItem> {
         return List(LIST_SIZE) {
@@ -119,4 +130,87 @@ class ScreenViewModel : ViewModel() {
             }
         }
     }
+
+    fun buildSimpleBinaryThree(): Node {
+
+        val rootNode = Node(1)
+        rootNode.leftChild = Node(2)
+        rootNode.rightChild = Node(3)
+        rootNode.leftChild?.leftChild = Node(4)
+        rootNode.leftChild?.rightChild = Node(5)
+        rootNode.rightChild?.leftChild = Node(6)
+        rootNode.rightChild?.rightChild = Node(7)
+
+        return rootNode
+    }
+
+    fun onStartTraversePreorder() {
+        viewModelScope.launch {
+            traversePreorder(three.value)
+        }
+    }
+
+    fun onStartTraverseInOrder() {
+        viewModelScope.launch {
+            traverseInOrder(three.value)
+        }
+    }
+
+    fun onStartTraversePostOrder() {
+        viewModelScope.launch {
+            traversePostOrder(three.value)
+        }
+    }
+
+    fun refreshBinaryThree() {
+        three.value = buildSimpleBinaryThree()
+    }
+
+    private suspend fun traversePreorder(
+        node: Node?,
+    ) {
+        if (node != null) {
+            delay(300)
+            node.isChecked.value = true
+            traversePreorder(node.leftChild)
+            traversePreorder(node.rightChild)
+        }
+    }
+
+
+    private suspend fun traverseInOrder(
+        node: Node?
+    ) {
+        if (node != null) {
+            traverseInOrder(node.leftChild)
+            delay(300)
+            node.isChecked.value = true
+            traverseInOrder(node.rightChild)
+        }
+    }
+
+    private suspend fun traversePostOrder(
+        node: Node?
+    ) {
+        if (node != null) {
+            traversePostOrder(node.leftChild)
+            traversePostOrder(node.rightChild)
+            delay(300)
+            node.isChecked.value = true
+        }
+    }
+}
+
+fun rootOfNAryTree(): NNode {
+
+    val level1Node1 = NNode(2)
+    level1Node1.listChildren = mutableListOf(NNode(4), NNode(5), NNode(6))
+
+    val level1Node2 = NNode(3)
+    level1Node2.listChildren = mutableListOf(NNode(7), NNode(8))
+
+    val rootNode = NNode(1)
+    rootNode.listChildren = mutableListOf(level1Node1, level1Node2)
+
+    return rootNode
 }

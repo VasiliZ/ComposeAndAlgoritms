@@ -10,5 +10,8 @@ enum class RadioGroupItemType(
     ),
     QUICK_SORT(
         R.string.quick_sort_title
+    ),
+    BINARY_THREE(
+        R.string.binary_three_title
     )
 }
