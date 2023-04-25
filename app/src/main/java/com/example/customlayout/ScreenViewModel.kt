@@ -25,7 +25,7 @@ class ScreenViewModel : ViewModel() {
 
     val radioGroupList = RadioGroupItemType.values()
 
-    var selectedRadioButtonItem = mutableStateOf( RadioGroupItemType.BUBBLE_SORT)
+    var selectedRadioButtonItem = mutableStateOf(RadioGroupItemType.BUBBLE_SORT)
 
     private fun initBubbleSortList(): SnapshotStateList<LazyListItem> {
         return List(LIST_SIZE) {
@@ -109,11 +109,13 @@ class ScreenViewModel : ViewModel() {
     ) {
         viewModelScope.launch {
             if (start < end) {
-                delay(DELAY_OPERATION_MILLIS)
                 val partitionIndex = partition(arrayInt, start, end)
                 arrayInt[partitionIndex].isPivot.value = true
+                delay(DELAY_OPERATION_MILLIS)
+                arrayInt[partitionIndex].isPivot.value = false
                 quickSort(arrayInt, start, partitionIndex)
                 quickSort(arrayInt, partitionIndex + 1, end)
+
             }
         }
     }
