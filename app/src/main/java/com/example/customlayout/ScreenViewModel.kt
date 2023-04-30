@@ -92,18 +92,20 @@ class ScreenViewModel : ViewModel() {
         var i: Int = start
         var j: Int = end
 
-        while (arrayInt[i].value.value <= pivot && i < end) {
-            i++
-        }
+        while (i < j) {
+            while (arrayInt[i].value.value <= pivot && i < end) {
+                i++
+            }
 
-        while (arrayInt[j].value.value > pivot && j > start) {
-            j--
-        }
+            while (arrayInt[j].value.value > pivot && j > start) {
+                j--
+            }
 
-        if (i < j) {
-            val temp = arrayInt[i].value.value
-            arrayInt[i].value.value = arrayInt[j].value.value
-            arrayInt[j].value.value = temp
+            if (i <= j) {
+                val temp = arrayInt[i].value.value
+                arrayInt[i].value.value = arrayInt[j].value.value
+                arrayInt[j].value.value = temp
+            }
         }
 
 
