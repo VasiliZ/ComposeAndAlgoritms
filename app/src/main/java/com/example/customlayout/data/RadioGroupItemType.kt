@@ -16,5 +16,8 @@ enum class RadioGroupItemType(
     ),
     N_NODES_THREE(
         R.string.n_node_three_title
+    ),
+    RECURSION(
+        R.string.recursion_title
     )
 }

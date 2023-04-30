@@ -14,4 +14,6 @@
     <string name="bubble_sort_title">Bubble sort</string>
     <string name="binary_three_title">Binary three</string>
     <string name="n_node_three_title">DFS</string>
+    <string name="recursion_title">Recursion</string>
+    <string name="start_recursion_button_text">Start recursion</string>
 </resources>

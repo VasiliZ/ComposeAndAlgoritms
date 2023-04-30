@@ -21,6 +21,7 @@ import com.example.customlayout.composable.BinaryThreeView
 import com.example.customlayout.composable.BubbleSortView
 import com.example.customlayout.composable.NThreeView
 import com.example.customlayout.composable.QuickSortView
+import com.example.customlayout.composable.RecursionView
 import com.example.customlayout.data.RadioGroupItemType
 import com.example.customlayout.ui.theme.CustomLayoutTheme
 
@@ -67,6 +68,10 @@ class MainActivity : ComponentActivity() {
                                 Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Center) {
                                     NThreeView(viewModel = viewModel)
                                 }
+                            }
+
+                            RadioGroupItemType.RECURSION -> {
+                                RecursionView(viewModel)
                             }
                         }
                     }

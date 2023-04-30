@@ -1,5 +1,6 @@
 package com.example.customlayout
 
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.runtime.toMutableStateList
@@ -17,6 +18,7 @@ import kotlin.random.Random
 private const val DELAY_OPERATION_MILLIS = 200L
 private const val MAX_LIST_ITEM_VALUE = 1000
 private const val LIST_SIZE = 10
+private const val MAX_COUNT_RECURSIVE_CALLS = 10
 
 class ScreenViewModel : ViewModel() {
     var bubbleSortList: SnapshotStateList<LazyListItem> = initBubbleSortList()
@@ -31,6 +33,7 @@ class ScreenViewModel : ViewModel() {
     var three = mutableStateOf(buildSimpleBinaryThree())
         private set
     var nNodeThree = mutableStateOf(rootOfNArrayTree())
+    val recursionStack = mutableStateListOf<String>()
 
     private fun initBubbleSortList(): SnapshotStateList<LazyListItem> {
         return List(LIST_SIZE) {
@@ -240,5 +243,20 @@ class ScreenViewModel : ViewModel() {
                 }
             }
         }
+    }
+
+    fun onStartRecursionVisualize() {
+        viewModelScope.launch {
+            val countMethodCalls = 0
+            recursiveCallMethod(countMethodCalls)
+        }
+    }
+
+    private suspend fun recursiveCallMethod(countMethodCalls: Int) {
+        delay(300L)
+        val callsCount = countMethodCalls.plus(1)
+        if (countMethodCalls == MAX_COUNT_RECURSIVE_CALLS) return
+        recursionStack.add("${object {}.javaClass.name} $callsCount")
+        recursiveCallMethod(callsCount)
     }
 }
