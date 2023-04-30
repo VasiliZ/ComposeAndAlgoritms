@@ -6,9 +6,12 @@
     <string name="binary_three_pre_order_button_title">Traverse pre order</string>
     <string name="binary_three_in_order_button_title">Traverse in order</string>
     <string name="binary_three_post_order_button_title">Traverse post order</string>
+    <string name="n_three_traverse_depth_button_title">Start DFS</string>
     <string name="binary_three_refresh_button_title">Refresh traverse preorder</string>
     <string name="refresh_quick_sort_button_title">Refresh quick sort</string>
+    <string name="refresh_traverse_depth_view_button_title">Refresh DFS</string>
     <string name="quick_sort_title">Quick sort</string>
     <string name="bubble_sort_title">Bubble sort</string>
     <string name="binary_three_title">Binary three</string>
+    <string name="n_node_three_title">DFS</string>
 </resources>

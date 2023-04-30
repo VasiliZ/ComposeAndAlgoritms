@@ -30,13 +30,7 @@ class ScreenViewModel : ViewModel() {
     var selectedRadioButtonItem = mutableStateOf(RadioGroupItemType.BUBBLE_SORT)
     var three = mutableStateOf(buildSimpleBinaryThree())
         private set
-    val nNodeThree = rootOfNAryTree()
-
-    init {
-        nNodeThree.traverseDepthFirst(nNodeThree) {
-            // Log.d("TAG1", ": $it")
-        }
-    }
+    var nNodeThree = mutableStateOf(rootOfNArrayTree())
 
     private fun initBubbleSortList(): SnapshotStateList<LazyListItem> {
         return List(LIST_SIZE) {
@@ -164,8 +158,19 @@ class ScreenViewModel : ViewModel() {
         }
     }
 
+    fun onTraverseDepthFirst() {
+        viewModelScope.launch {
+            traverseDepthFirst(nNodeThree.value)
+        }
+
+    }
+
     fun refreshBinaryThree() {
         three.value = buildSimpleBinaryThree()
+    }
+
+    fun refreshNThreeView() {
+        nNodeThree.value = rootOfNArrayTree()
     }
 
     private suspend fun traversePreorder(
@@ -201,18 +206,39 @@ class ScreenViewModel : ViewModel() {
             node.isChecked.value = true
         }
     }
-}
 
-fun rootOfNAryTree(): NNode {
+    private fun rootOfNArrayTree(): NNode {
 
-    val level1Node1 = NNode(2)
-    level1Node1.listChildren = mutableListOf(NNode(4), NNode(5), NNode(6))
+        val level1Node1 = NNode(2)
+        level1Node1.listChildren = mutableListOf(NNode(4), NNode(5), NNode(6))
 
-    val level1Node2 = NNode(3)
-    level1Node2.listChildren = mutableListOf(NNode(7), NNode(8))
+        val level1Node2 = NNode(3)
+        level1Node2.listChildren = mutableListOf(NNode(7), NNode(8))
 
-    val rootNode = NNode(1)
-    rootNode.listChildren = mutableListOf(level1Node1, level1Node2)
+        val rootNode = NNode(1)
+        rootNode.listChildren = mutableListOf(level1Node1, level1Node2)
 
-    return rootNode
+        return rootNode
+    }
+
+    suspend fun traverseDepthFirst(
+        node: NNode?,
+    ) {
+
+        val stack = ArrayDeque<NNode?>()
+        stack.addLast(node)
+
+        while (stack.isNotEmpty()) {
+            val currentNode = stack.removeFirst()
+
+            delay(300L)
+            currentNode?.isChecked?.value = true
+
+            if (currentNode != null) {
+                for (index in currentNode.listChildren.size - 1 downTo (0)) {
+                    stack.add(currentNode.listChildren[index])
+                }
+            }
+        }
+    }
 }

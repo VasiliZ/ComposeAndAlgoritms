@@ -13,5 +13,8 @@ enum class RadioGroupItemType(
     ),
     BINARY_THREE(
         R.string.binary_three_title
+    ),
+    N_NODES_THREE(
+        R.string.n_node_three_title
     )
 }

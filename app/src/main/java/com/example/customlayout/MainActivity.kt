@@ -19,6 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.customlayout.composable.BinaryThreeView
 import com.example.customlayout.composable.BubbleSortView
+import com.example.customlayout.composable.NThreeView
 import com.example.customlayout.composable.QuickSortView
 import com.example.customlayout.data.RadioGroupItemType
 import com.example.customlayout.ui.theme.CustomLayoutTheme
@@ -59,6 +60,12 @@ class MainActivity : ComponentActivity() {
                             RadioGroupItemType.BINARY_THREE -> {
                                 Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Center) {
                                     BinaryThreeView(viewModel = viewModel)
+                                }
+                            }
+
+                            RadioGroupItemType.N_NODES_THREE -> {
+                                Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Center) {
+                                    NThreeView(viewModel = viewModel)
                                 }
                             }
                         }

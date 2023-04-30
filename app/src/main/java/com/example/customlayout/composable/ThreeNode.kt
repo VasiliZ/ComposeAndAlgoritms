@@ -1,6 +1,5 @@
 package com.example.customlayout.composable
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -87,7 +86,6 @@ fun ThreeNode(
                 .wrapContentWidth()
                 .wrapContentHeight()
                 .onGloballyPositioned {
-                    Log.d("TAG1", "ThreeNode:${it.size.width} ")
                     layoutWidth.value = it.size.width
                 },
         ) {
