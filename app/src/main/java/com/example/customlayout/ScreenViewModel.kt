@@ -6,11 +6,13 @@ import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.runtime.toMutableStateList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.customlayout.data.QuickSortItem
-import com.example.customlayout.data.RadioGroupItemType
-import com.example.customlayout.lazylayout.data.LazyListItem
-import com.example.customlayout.three.NNode
-import com.example.customlayout.three.Node
+import com.example.customlayout.algoritms.data.QuickSortItem
+import com.example.customlayout.algoritms.data.RadioGroupItemType
+import com.example.customlayout.algoritms.lazylayout.data.LazyListItem
+import com.example.customlayout.algoritms.three.NNode
+import com.example.customlayout.algoritms.three.Node
+import com.example.customlayout.charts.data.ChartType
+import com.example.customlayout.charts.screen.pie.data.PieChartModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random
@@ -21,6 +23,9 @@ private const val LIST_SIZE = 10
 private const val MAX_COUNT_RECURSIVE_CALLS = 10
 
 class ScreenViewModel : ViewModel() {
+
+    val currentScreen = mutableStateOf(Screen.HOME)
+    val chartScreen = mutableStateOf(ChartType.HOME)
     var bubbleSortList: SnapshotStateList<LazyListItem> = initBubbleSortList()
         private set
 
@@ -34,6 +39,8 @@ class ScreenViewModel : ViewModel() {
         private set
     var nNodeThree = mutableStateOf(rootOfNArrayTree())
     val recursionStack = mutableStateListOf<String>()
+
+    val pieChartDataModel = PieChartModel()
 
     private fun initBubbleSortList(): SnapshotStateList<LazyListItem> {
         return List(LIST_SIZE) {
@@ -130,7 +137,7 @@ class ScreenViewModel : ViewModel() {
         }
     }
 
-    fun buildSimpleBinaryThree(): Node {
+    private fun buildSimpleBinaryThree(): Node {
 
         val rootNode = Node(1)
         rootNode.leftChild = Node(2)
@@ -224,7 +231,7 @@ class ScreenViewModel : ViewModel() {
         return rootNode
     }
 
-    suspend fun traverseDepthFirst(
+    private suspend fun traverseDepthFirst(
         node: NNode?,
     ) {
 
@@ -258,5 +265,33 @@ class ScreenViewModel : ViewModel() {
         if (countMethodCalls == MAX_COUNT_RECURSIVE_CALLS) return
         recursionStack.add("${object {}.javaClass.name} $callsCount")
         recursiveCallMethod(callsCount)
+    }
+
+    fun onHomeScreenButtonClick(screen: Screen) {
+        this.currentScreen.value = screen
+    }
+
+    fun toHomeScreen() {
+        this.currentScreen.value = Screen.HOME
+    }
+
+    fun onSelectChartsScreen(chartType: ChartType) {
+        chartScreen.value = chartType
+    }
+
+    fun onUpdatePieChartViewWith(newWidth: Float) {
+        pieChartDataModel.sliceWidth.value = newWidth
+    }
+
+    fun onAddMoreSlicesButtonClick() {
+        pieChartDataModel.addNewSlice()
+    }
+
+    fun moveToChartsList() {
+        chartScreen.value = ChartType.HOME
+    }
+
+    fun onRemoveSliceButtonClick() {
+        pieChartDataModel.removeSlice()
     }
 }
