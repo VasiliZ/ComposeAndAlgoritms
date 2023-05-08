@@ -13,6 +13,7 @@ import com.example.customlayout.algoritms.three.NNode
 import com.example.customlayout.algoritms.three.Node
 import com.example.customlayout.charts.data.ChartType
 import com.example.customlayout.charts.screen.pie.data.PieChartModel
+import com.example.customlayout.charts.util.data.BarChartDataModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random
@@ -41,6 +42,7 @@ class ScreenViewModel : ViewModel() {
     val recursionStack = mutableStateListOf<String>()
 
     val pieChartDataModel = PieChartModel()
+    val barChartModel = BarChartDataModel()
 
     private fun initBubbleSortList(): SnapshotStateList<LazyListItem> {
         return List(LIST_SIZE) {

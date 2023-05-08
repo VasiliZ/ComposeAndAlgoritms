@@ -4,8 +4,10 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -20,6 +22,9 @@ import androidx.compose.ui.unit.dp
 import com.example.customlayout.R
 import com.example.customlayout.ScreenViewModel
 import com.example.customlayout.charts.data.ChartType
+import com.example.customlayout.charts.screen.bar.BarChart
+import com.example.customlayout.charts.screen.bar.ChangeBarsCount
+import com.example.customlayout.charts.screen.bar.LabelDrawingChooser
 import com.example.customlayout.charts.screen.pie.PieChart
 import com.example.customlayout.charts.screen.pie.PieChartSlider
 import com.example.customlayout.charts.screen.pie.data.PieChartModel
@@ -47,7 +52,35 @@ fun ChartsScreen(viewModel: ScreenViewModel) {
                 }
             }
 
-            ChartType.BAR -> {}
+            ChartType.BAR -> {
+
+                BackHandler {
+                    viewModel.moveToChartsList()
+                }
+
+                Column(modifier = Modifier.padding(16.dp)) {
+
+                    BarChart(
+                        viewModel.barChartModel.barChartData,
+                        labelDrawer = viewModel.barChartModel.labelDrawer
+                    )
+                    Spacer(modifier = Modifier.height(30.dp))
+                    LabelDrawingChooser {
+                        viewModel.barChartModel.onChangeBarsLocation(it)
+                    }
+
+                    ChangeBarsCount(
+                        barsSize = viewModel.barChartModel.barChartData.barList.size,
+                        onAddBarCallback = {
+                            viewModel.barChartModel.onAddNewBar()
+                        },
+                        onRemoveBarCallBack = {
+                            viewModel.barChartModel.onRemoveBar()
+                        }
+                    )
+                }
+            }
+
             ChartType.LINE -> {}
             ChartType.PIE -> {
 
@@ -89,7 +122,7 @@ fun ChartsScreen(viewModel: ScreenViewModel) {
                         Button(
                             enabled = listSlicesSize < PieChartModel.MAX_SLICES_COUNT,
                             onClick = { viewModel.onAddMoreSlicesButtonClick() }) {
-                            Text(text = stringResource(id = R.string.add_slice))
+                            Text(text = stringResource(id = R.string.add))
                         }
                     }
                 }

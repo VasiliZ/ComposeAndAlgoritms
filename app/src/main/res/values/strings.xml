@@ -27,7 +27,7 @@
     <string name="line_charts_button_title">Line chart sample</string>
     <string name="bar_charts_button_title">Bar chart sample</string>
     <string name="home_charts_button_title">Chart home</string>
-    <string name="add_slice">+</string>
+    <string name="add">+</string>
     <string name="slice_thickness">Slice Thickness: </string>
     <string name="remove_slice">-</string>
 </resources>
