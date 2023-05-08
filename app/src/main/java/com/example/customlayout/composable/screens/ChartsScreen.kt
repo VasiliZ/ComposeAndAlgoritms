@@ -25,6 +25,7 @@ import com.example.customlayout.charts.data.ChartType
 import com.example.customlayout.charts.screen.bar.BarChart
 import com.example.customlayout.charts.screen.bar.ChangeBarsCount
 import com.example.customlayout.charts.screen.bar.LabelDrawingChooser
+import com.example.customlayout.charts.screen.line.LineChart
 import com.example.customlayout.charts.screen.pie.PieChart
 import com.example.customlayout.charts.screen.pie.PieChartSlider
 import com.example.customlayout.charts.screen.pie.data.PieChartModel
@@ -53,7 +54,6 @@ fun ChartsScreen(viewModel: ScreenViewModel) {
             }
 
             ChartType.BAR -> {
-
                 BackHandler {
                     viewModel.moveToChartsList()
                 }
@@ -81,9 +81,13 @@ fun ChartsScreen(viewModel: ScreenViewModel) {
                 }
             }
 
-            ChartType.LINE -> {}
-            ChartType.PIE -> {
+            ChartType.LINE -> {
+                LineChart(data = viewModel.lineChartDataModel) {
+                    viewModel.moveToChartsList()
+                }
+            }
 
+            ChartType.PIE -> {
                 BackHandler {
                     viewModel.moveToChartsList()
                 }

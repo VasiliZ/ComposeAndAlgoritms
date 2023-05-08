@@ -12,6 +12,7 @@ import com.example.customlayout.algoritms.lazylayout.data.LazyListItem
 import com.example.customlayout.algoritms.three.NNode
 import com.example.customlayout.algoritms.three.Node
 import com.example.customlayout.charts.data.ChartType
+import com.example.customlayout.charts.screen.line.data.LineChartDataModel
 import com.example.customlayout.charts.screen.pie.data.PieChartModel
 import com.example.customlayout.charts.util.data.BarChartDataModel
 import kotlinx.coroutines.delay
@@ -43,6 +44,7 @@ class ScreenViewModel : ViewModel() {
 
     val pieChartDataModel = PieChartModel()
     val barChartModel = BarChartDataModel()
+    val lineChartDataModel = LineChartDataModel()
 
     private fun initBubbleSortList(): SnapshotStateList<LazyListItem> {
         return List(LIST_SIZE) {
