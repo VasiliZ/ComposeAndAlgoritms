@@ -21,6 +21,7 @@
     <string name="home_button_title">Home</string>
     <string name="algorithms_button_title">Algorithms</string>
     <string name="charts_button_title">Charts</string>
+    <string name="animation_button_title">Animation</string>
 
     <!--charts resources-->
     <string name="pie_charts_button_title">Pie chart sample</string>
@@ -30,4 +31,13 @@
     <string name="add">+</string>
     <string name="slice_thickness">Slice Thickness: </string>
     <string name="remove_slice">-</string>
+
+    <!--animations-->
+    <string name="animation_fade">Fade</string>
+    <string name="animation_slide">Slide</string>
+    <string name="animation_scale">Scale</string>
+    <string name="animation_expand">Expand</string>
+    <string name="animation_vector">Vector</string>
+    <string name="animation_content">Content</string>
+    <string name="start_animation_button_text">Start animation</string>
 </resources>
