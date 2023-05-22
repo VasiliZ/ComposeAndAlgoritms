@@ -1,43 +1,51 @@
 <resources>
-    <string name="app_name">CustomLayout</string>
-    <string name="sort_button_title">Start bubble sort</string>
-    <string name="refresh_bubble_sort_button_title">Refresh bubble sort</string>
-    <string name="quick_sort_button_title">Start quick sort</string>
-    <string name="binary_three_pre_order_button_title">Traverse pre order</string>
-    <string name="binary_three_in_order_button_title">Traverse in order</string>
-    <string name="binary_three_post_order_button_title">Traverse post order</string>
-    <string name="n_three_traverse_depth_button_title">Start DFS</string>
-    <string name="binary_three_refresh_button_title">Refresh traverse preorder</string>
-    <string name="refresh_quick_sort_button_title">Refresh quick sort</string>
-    <string name="refresh_traverse_depth_view_button_title">Refresh DFS</string>
-    <string name="quick_sort_title">Quick sort</string>
-    <string name="bubble_sort_title">Bubble sort</string>
-    <string name="binary_three_title">Binary three</string>
-    <string name="n_node_three_title">DFS</string>
-    <string name="recursion_title">Recursion</string>
-    <string name="start_recursion_button_text">Start recursion</string>
+    <string name="app_name" translatable="false">CustomLayout</string>
+    <string name="sort_button_title" translatable="false">Start bubble sort</string>
+    <string name="refresh_bubble_sort_button_title" translatable="false">Refresh bubble sort</string>
+    <string name="quick_sort_button_title" translatable="false">Start quick sort</string>
+    <string name="binary_three_pre_order_button_title" translatable="false">Traverse pre order</string>
+    <string name="binary_three_in_order_button_title" translatable="false">Traverse in order</string>
+    <string name="binary_three_post_order_button_title" translatable="false">Traverse post order</string>
+    <string name="n_three_traverse_depth_button_title" translatable="false">Start DFS</string>
+    <string name="binary_three_refresh_button_title" translatable="false">Refresh traverse preorder</string>
+    <string name="refresh_quick_sort_button_title" translatable="false">Refresh quick sort</string>
+    <string name="refresh_traverse_depth_view_button_title" translatable="false">Refresh DFS</string>
+    <string name="quick_sort_title" translatable="false">Quick sort</string>
+    <string name="bubble_sort_title" translatable="false">Bubble sort</string>
+    <string name="binary_three_title" translatable="false">Binary three</string>
+    <string name="n_node_three_title" translatable="false">DFS</string>
+    <string name="recursion_title" translatable="false">Recursion</string>
+    <string name="start_recursion_button_text" translatable="false">Start recursion</string>
 
     <!--screen resources-->
-    <string name="home_button_title">Home</string>
-    <string name="algorithms_button_title">Algorithms</string>
-    <string name="charts_button_title">Charts</string>
-    <string name="animation_button_title">Animation</string>
+    <string name="home_button_title" translatable="false">Home</string>
+    <string name="algorithms_button_title" translatable="false">Algorithms</string>
+    <string name="charts_button_title" translatable="false">Charts</string>
+    <string name="animation_button_title" translatable="false">Animation</string>
 
     <!--charts resources-->
-    <string name="pie_charts_button_title">Pie chart sample</string>
-    <string name="line_charts_button_title">Line chart sample</string>
-    <string name="bar_charts_button_title">Bar chart sample</string>
-    <string name="home_charts_button_title">Chart home</string>
-    <string name="add">+</string>
-    <string name="slice_thickness">Slice Thickness: </string>
-    <string name="remove_slice">-</string>
+    <string name="pie_charts_button_title" translatable="false">Pie chart sample</string>
+    <string name="line_charts_button_title" translatable="false">Line chart sample</string>
+    <string name="bar_charts_button_title" translatable="false">Bar chart sample</string>
+    <string name="home_charts_button_title" translatable="false">Chart home</string>
+    <string name="add" translatable="false">+</string>
+    <string name="slice_thickness" translatable="false">Slice Thickness: </string>
+    <string name="remove_slice" translatable="false">-</string>
 
     <!--animations-->
-    <string name="animation_fade">Fade</string>
-    <string name="animation_slide">Slide</string>
-    <string name="animation_scale">Scale</string>
-    <string name="animation_expand">Expand</string>
-    <string name="animation_vector">Vector</string>
-    <string name="animation_content">Content</string>
-    <string name="start_animation_button_text">Start animation</string>
+    <string name="animation_fade" translatable="false">Fade</string>
+    <string name="animation_slide" translatable="false">Slide</string>
+    <string name="animation_scale" translatable="false">Scale</string>
+    <string name="animation_expand" translatable="false">Expand</string>
+    <string name="animation_vector" translatable="false">Vector</string>
+    <string name="animation_content" translatable="false">Content</string>
+    <string name="start_animation_button_text" translatable="false">Start animation</string>
+
+    <!--    preview-->
+    <string name="preview_view_description"> род растений семейства Лилейные (Liliaceae). Многолетние травы, снабжённые луковицами, состоящими из мясистых низовых листьев, расположенных черепитчато, белого, розоватого или желтоватого цвета.</string>
+    <string name="preview_view_description_tulpa">Тюльпа́н (лат. Túlipa) — род многолетних травянистых луковичных растений семейства Лилейные (Liliaceae), в современных систематиках включающий более 80 видов[</string>
+    <string name="preview_view_description_dianthus">Гвозди́ка (лат. Diánthus) — род многолетних растений семейства Гвоздичные (Caryophyllaceae).</string>
+    <string name="preview_view_title">Лилия</string>
+    <string name="preview_view_title_tulpa">Тюльпан</string>
+    <string name="preview_view_title_dianthus">Гвоздика</string>
 </resources>
