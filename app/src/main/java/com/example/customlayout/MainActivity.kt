@@ -11,6 +11,7 @@ import com.example.customlayout.animation.screen.AnimationScreen
 import com.example.customlayout.composable.screens.AlgorithmsScreen
 import com.example.customlayout.composable.screens.ChartsScreen
 import com.example.customlayout.composable.screens.HomeScreen
+import com.example.customlayout.saveable.composable.SampleSaveable
 import com.example.customlayout.ui.theme.CustomLayoutTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,6 +27,7 @@ class MainActivity : ComponentActivity() {
                         Screen.ALGORITHMS -> AlgorithmsScreen(viewModel = viewModel)
                         Screen.CHARTS -> ChartsScreen(viewModel)
                         Screen.ANIMATION -> AnimationScreen(viewModel)
+                        Screen.SAVEABLE -> SampleSaveable()
                         else -> HomeScreen(viewModel)
                     }
                 }

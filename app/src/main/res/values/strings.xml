@@ -22,6 +22,7 @@
     <string name="algorithms_button_title" translatable="false">Algorithms</string>
     <string name="charts_button_title" translatable="false">Charts</string>
     <string name="animation_button_title" translatable="false">Animation</string>
+    <string name="saveable_button_title" translatable="false">Saveable sample</string>
 
     <!--charts resources-->
     <string name="pie_charts_button_title" translatable="false">Pie chart sample</string>
